@@ -1,3 +1,9 @@
+Symfony Website
+
+Made with Symfony
+
+========================
+
 Symfony Standard Edition
 ========================
 
