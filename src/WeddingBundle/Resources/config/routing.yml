@@ -1,0 +1,3 @@
+wedding_homepage:
+    path:     /
+    defaults: { _controller: WeddingBundle:Default:index }
