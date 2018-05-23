@@ -1,0 +1,41 @@
+WeddingBundle\Entity\Menu:
+    type: entity
+    table: menu
+    indexes:
+        fk_menu_weddings:
+            columns:
+                - wedding_id
+        fk_menu_dishes:
+            columns:
+                - dish_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        dish:
+            targetEntity: Dish
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                dish_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        wedding:
+            targetEntity: Wedding
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                wedding_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
