@@ -23,7 +23,7 @@ WeddingBundle\Entity\Menu:
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: menu
             joinColumns:
                 dish_id:
                     referencedColumnName: id
@@ -33,7 +33,7 @@ WeddingBundle\Entity\Menu:
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: menu
             joinColumns:
                 wedding_id:
                     referencedColumnName: id

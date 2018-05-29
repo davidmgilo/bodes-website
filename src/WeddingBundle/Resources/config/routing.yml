@@ -1,3 +1,37 @@
 wedding_homepage:
     path:     /
     defaults: { _controller: WeddingBundle:Default:index }
+
+login:
+    path:     /login
+    defaults: { _controller: WeddingBundle:User:login }
+
+login_check:
+    path:     /login_check
+
+logout:
+    path:     /logout
+    
+wedding_index_dish:
+    path:     /dishes
+    defaults: { _controller: WeddingBundle:Dish:index }
+
+wedding_add_dish:
+    path:     /dishes/add
+    defaults: { _controller: WeddingBundle:Dish:add }
+
+wedding_edit_dish:
+    path:     /dishes/edit/{id}
+    defaults: { _controller: WeddingBundle:Dish:edit }
+
+wedding_delete_dish:
+    path:     /dishes/delete/{id}
+    defaults: { _controller: WeddingBundle:Dish:delete }
+    
+wedding_index_wedding:
+    path:     /weddings
+    defaults: { _controller: WeddingBundle:Wedding:index }
+    
+wedding_add_wedding:
+    path:     /weddings/add
+    defaults: { _controller: WeddingBundle:Wedding:add }

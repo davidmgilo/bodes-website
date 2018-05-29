@@ -68,3 +68,12 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+easy_admin:
+    entities:
+        - WeddingBundle\Entity\Dish
+        - WeddingBundle\Entity\Menu
+        - WeddingBundle\Entity\Type
+        - WeddingBundle\Entity\User
+        - WeddingBundle\Entity\Wedding
+    site_name: "Wedding Backend"

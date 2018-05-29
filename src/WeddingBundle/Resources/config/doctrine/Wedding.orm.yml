@@ -1,6 +1,7 @@
 WeddingBundle\Entity\Wedding:
     type: entity
     table: weddings
+    repositoryClass: WeddingBundle\Repository\WeddingRepository
     indexes:
         fk_weddings_users:
             columns:
@@ -51,7 +52,7 @@ WeddingBundle\Entity\Wedding:
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: wedding
             joinColumns:
                 type_id:
                     referencedColumnName: id
@@ -66,4 +67,9 @@ WeddingBundle\Entity\Wedding:
                 user_id:
                     referencedColumnName: id
             orphanRemoval: false
+    oneToMany:
+        menu:
+            targetEntity: Menu
+            mappedBy: wedding
+            cascade: ["persist"]
     lifecycleCallbacks: {  }

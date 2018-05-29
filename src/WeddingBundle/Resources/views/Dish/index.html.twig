@@ -1,0 +1,36 @@
+{% extends "WeddingBundle::layout.html.twig" %}
+{% block dishes %}active{% endblock %}
+{% block content %}
+    <div class="col-lg-6">
+        <h2>Llistat Plats</h2>
+        <hr/>
+        <a href="{{path("wedding_add_dish")}}" class="btn btn-success">Afegir plat</a>
+        <hr/>
+        {% for message in app.session.flashbag().get('status') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Nom</th>
+                <th>Descripció</th>
+                <th>Editar</th>
+                <th>Esborrar</th>
+            </tr>
+            {% for dish in dishes %}
+                <tr>
+                    <td>{{ dish.name }}</td>
+                    <td>{{ dish.description }}</td>
+                    <td><a href="{{path("wedding_edit_dish", {"id":dish.id})}}" class="btn btn-warning">Editar</a></td>
+                    <td>
+                        {% if dish.menu|length == 0 %}
+                            <a href="{{path("wedding_delete_dish", {"id":dish.id})}}" class="btn btn-danger" onclick="return confirm('are u sure?')">Esborrar</a>
+                        {% else %} 
+                           Plat en ús. No es pot esborrar
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="clearfix"></div>
+{% endblock %}

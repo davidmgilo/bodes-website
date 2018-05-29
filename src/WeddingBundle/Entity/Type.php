@@ -2,6 +2,7 @@
 
 namespace WeddingBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Type
  */
@@ -27,6 +28,20 @@ class Type
      */
     private $image;
 
+    protected $wedding;
+    
+    public function __construct(){
+        $this->wedding = new ArrayCollection();
+    }
+    
+    public function addWedding(\WeddingBundle\Entity\Wedding $wedding){
+        $this->wedding[] = $wedding;
+        return $this;
+    }
+    
+    public function getWedding(){
+        return $this->wedding;
+    }
 
     /**
      * Get id
@@ -108,6 +123,10 @@ class Type
     public function getImage()
     {
         return $this->image;
+    }
+    
+    public function __toString(){
+        return $this->name;
     }
 }
 

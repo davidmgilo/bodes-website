@@ -80,5 +80,9 @@ class Menu
     {
         return $this->wedding;
     }
+    
+    public function __toString(){
+        return $this->dish." ".$this->wedding;
+    }
 }
 

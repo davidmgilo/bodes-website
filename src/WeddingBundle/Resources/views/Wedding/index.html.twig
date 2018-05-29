@@ -1,0 +1,40 @@
+{% extends "WeddingBundle::layout.html.twig" %}
+
+
+{% block content %}
+
+{% for message in app.session.flashbag().get('status') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+        <h2>Llistat Bodes</h2>
+        <hr/>
+        <a href="{{path("wedding_add_wedding")}}" class="btn btn-success">Afegir boda</a>
+        <hr/>
+{% for wedding in weddings %}
+    <div class="col-lg-11">      
+        <p><strong>{{wedding.title}}</strong></p>
+        <p>Autor:{{wedding.user.name}}</p>
+        
+        <p>Menú:</p>
+        <ol>
+            {% for menu in wedding.menu %}
+                <li> {{menu.dish.name}} </li>
+            {% endfor %}
+        </ol>
+        
+        {%if (app.user.id is defined) and (wedding.user.id == app.user.id) %}
+        <p>
+            Sóc l'autor
+            {#<a href="{{path("blog_delete_entry",{"id":entry.id})}}" class="btn btn-danger">Esborrar</a>
+            <a href="{{path("blog_edit_entry",{"id":entry.id})}}" class="btn btn-warning">{% trans %}btn_edit{% endtrans %}</a> #}
+        </p>
+        {%endif%}
+        
+        <div class="clearfix"></div>
+        <hr/>
+    </div>
+    
+    <div class="clearfix"></div>
+{% endfor %}
+
+{% endblock %}

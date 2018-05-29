@@ -23,4 +23,9 @@ WeddingBundle\Entity\Dish:
             length: 65535
             options:
                 fixed: false
+    oneToMany:
+        menu:
+            targetEntity: Menu
+            mappedBy: dish
+            cascade: ["persist"]
     lifecycleCallbacks: {  }

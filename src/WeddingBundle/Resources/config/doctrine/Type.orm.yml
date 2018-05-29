@@ -29,4 +29,9 @@ WeddingBundle\Entity\Type:
             length: 255
             options:
                 fixed: false
+    oneToMany:
+        wedding:
+            targetEntity: Wedding
+            mappedBy: type
+            cascade: ["persist"]    
     lifecycleCallbacks: {  }

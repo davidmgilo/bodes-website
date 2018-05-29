@@ -22,6 +22,20 @@ class Dish
      */
     private $description;
 
+    private $menu;
+    
+    public function _construct(){
+        $this->menu = new ArrayCollection();
+    }
+    
+    public function addMenu(\WeddingBundle\Entity\Wedding $wedding){
+        $this->menu[] = $wedding;
+        return $this;
+    }
+    
+    public function getMenu(){
+        return $this->menu;
+    }
 
     /**
      * Get id
@@ -79,6 +93,10 @@ class Dish
     public function getDescription()
     {
         return $this->description;
+    }
+    
+    public function __toString(){
+        return $this->name;
     }
 }
 

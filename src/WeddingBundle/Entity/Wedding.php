@@ -2,6 +2,7 @@
 
 namespace WeddingBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Wedding
  */
@@ -47,6 +48,21 @@ class Wedding
      */
     private $user;
 
+    private $menu;
+    
+    public function __construct(){
+        $this->menu = new ArrayCollection();
+        $this->dataCreacio = new \DateTime();
+    }
+    
+    public function addMenu(\WeddingBundle\Entity\Dish $dish){
+        $this->menu[] = $dish;
+        return $this;
+    }
+    
+    public function getMenu(){
+        return $this->menu;
+    }
 
     /**
      * Get id
@@ -224,6 +240,10 @@ class Wedding
     public function getUser()
     {
         return $this->user;
+    }
+    
+    public function __toString(){
+        return $this->title;
     }
 }
 
