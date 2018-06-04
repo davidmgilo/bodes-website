@@ -11,7 +11,11 @@ login_check:
 
 logout:
     path:     /logout
-    
+ 
+register:
+    path:     /register
+    defaults: { _controller: WeddingBundle:User:register }
+
 wedding_index_dish:
     path:     /dishes
     defaults: { _controller: WeddingBundle:Dish:index }
@@ -35,3 +39,11 @@ wedding_index_wedding:
 wedding_add_wedding:
     path:     /weddings/add
     defaults: { _controller: WeddingBundle:Wedding:add }
+
+wedding_index_tipus:
+    path:   /tipus
+    defaults: { _controller: WeddingBundle:Type:show }
+
+wedding_lang:
+    path: /lang/{_locale}
+    defaults: { _controller: WeddingBundle:Default:lang }

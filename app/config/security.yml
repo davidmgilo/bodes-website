@@ -26,6 +26,8 @@ security:
             form_login:
                 login_path: /login
                 check_path: /login_check
+                default_target_path: wedding_homepage
+                always_use_default_target_path: true
             logout:
                 path: /logout
                 target: /login
@@ -40,3 +42,4 @@ security:
         - { path: ^/wedding, roles: [ROLE_ADMIN, ROLE_USER]}
         - { path: ^/type, roles: ROLE_ADMIN}
         - { path: ^/dish, roles: ROLE_ADMIN}
+        - { path: ^/admin, roles: ROLE_ADMIN}

@@ -1,0 +1,26 @@
+{% extends 'WeddingBundle::layout.html.twig' %}
+
+{% block content %}
+<h3>Els nostres tipus</h3>
+<div class="container">
+    {% for type in pagination %}
+    <div class="col-md-12"id="column-topped">
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object" width="200" src="{{ asset("uploads/"~type.image)}}" alt="...">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{type.name}}</h4>
+                {{type.description}}
+              </div>
+            </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+{% endblock %}

@@ -3,6 +3,8 @@
 namespace WeddingBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller
 {
@@ -28,4 +30,9 @@ class DefaultController extends Controller
         
         return $this->render('WeddingBundle:Default:index.html.twig');
     }
+    
+    public function langAction(Request $request){
+		
+		return $this->redirectToRoute("wedding_homepage");
+	}
 }

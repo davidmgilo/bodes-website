@@ -8,10 +8,11 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    app.path.type_images: /uploads
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -70,10 +71,50 @@ swiftmailer:
     spool:     { type: memory }
     
 easy_admin:
+    design:
+        brand_color: '#AF7AC5'
     entities:
-        - WeddingBundle\Entity\Dish
-        - WeddingBundle\Entity\Menu
-        - WeddingBundle\Entity\Type
-        - WeddingBundle\Entity\User
-        - WeddingBundle\Entity\Wedding
+        Type: 
+            class: WeddingBundle\Entity\Type
+            list:
+                fields:
+                    - { property: 'name', type: 'string'}
+                    - { property: 'description', type: 'string'}
+                    - { property: 'image', type: 'image', base_path: '%app.path.type_images%' }
+            show:
+                fields:
+                    - { property: 'name', type: 'string'}
+                    - { property: 'description', type: 'string'}
+                    - { property: 'image', type: 'image', base_path: '%app.path.type_images%' }
+            form:
+                fields:
+                    - { property: 'name'}
+                    - { property: 'description'}
+                    - { property: 'imageFile', type: 'vich_image' }
+        Dish:
+            class: WeddingBundle\Entity\Dish  
+        Menu:
+            class: WeddingBundle\Entity\Menu   
+        User:
+            class: WeddingBundle\Entity\User
+        Wedding:
+            class: WeddingBundle\Entity\Wedding        
+            
     site_name: "Wedding Backend"
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        type_images:
+            uri_prefix: '%app.path.type_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads'
+knp_paginator:
+    page_range: 5
+    default_options:
+        page_name: page
+        sort_field_name: sort
+        sort_direction_name: direction
+        distinct: true
+    template:
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig

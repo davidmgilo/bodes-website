@@ -9,54 +9,107 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
+        <link rel="stylesheet" href="{{asset('css/propi.css')}}"/>
+        <link rel='stylesheet' id='font-awesome-css'  href='https://cdn.colorlib.com/shapely/wp-content/themes/shapely/assets/css/font-awesome.min.css?ver=4.9.6' type='text/css' media='all' />
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
     </head>
     <body>
-        <header>
+        <!--<header>
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <!-- Brand and toggle get grouped for better mobile display 
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="{{path("wedding_homepage")}}">Weddings</a>
+                        <a class="navbar-brand" href="{path("wedding_homepage")">Weddings</a>
                     </div>
-                    
-                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+                    <!-- Collect the nav links, forms, and other content for toggling 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            {% block menu %}
-                                {% if is_granted('ROLE_ADMIN')%}
-                                  <li><a href="{{path("wedding_index_wedding")}}">Bodes</a></li>
-                                  <li class="{% block dishes %} {% endblock %}"><a href="{{path("wedding_index_dish")}}">Plats <span class="sr-only"></span></a></li>
-                                {%endif%}
-                                {%if is_granted('ROLE_USER')%}
-                                  <li><a href="{{path("wedding_index_wedding")}}">Bodes</a></li>
-                                  
-                                {%endif%}
-                                
-                            {% endblock %}
+                             block menu 
+                                 if is_granted('ROLE_ADMIN')%}
+                                    <li><a href="/admin">Administra</a></li>
+                                    <li><a href="path("wedding_index_wedding")}}">Bodes</a></li>
+                                    <li class=" block dishes %}  endblock %}"><a href="path("wedding_index_dish")}}">Plats <span class="sr-only"></span></a></li>
+                                endif%}
+                                if is_granted('ROLE_USER')%}
+                                    <li><a href="path("wedding_index_wedding")}}">Bodes</a></li>
+
+                                endif%}
+
+                             endblock %}
                         </ul>
-                        
+
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#">
-                                {% if app.user != null %}
-                                    Benvingut/da {{app.user.name}} {{app.user.surname}}
-                                {%endif%}
+                                     if app.user != null %}
+                                        Benvingut/da app.user.name}} app.user.surname}}
+                                    endif%}
                                 </a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    {% if app.user == null %}
-                                        <li><a href="{{path("login")}}">Entrar</a></li>
-                                    {%else%}
-                                        <li><a href="{{path("logout")}}">Sortir</a></li>
-                                    {%endif%}
-                                        <li><a href="#">Ajuda</a></li>
+                                     if app.user == null %}
+                                        <li><a href="path("login")}}">Entrar</a></li>
+                                        else%}
+                                        <li><a href="path("logout")}}">Sortir</a></li>
+                                        endif%}
+                                    <li><a href="#">Ajuda</a></li>
                                 </ul>
                             </li>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
+                    </div><!-- /.navbar-collapse
+                </div><!-- /.container-fluid
             </nav>
+        </header> -->
+        <header id="masthead" class="site-header" role="banner">
+            <div class="nav-container">
+                <nav id="site-navigation" class="main-navigation" role="navigation">
+                    <div class="container nav-bar">
+                        <div class="flex-row">
+                            <div class="module left site-title-container">
+                                <a href="{{path("wedding_homepage")}}" class="custom-logo-link"><span class="site-title">{% trans %}title_web{% endtrans %}</span></a>						</div>
+                            <div class="module widget-handle mobile-toggle right visible-sm visible-xs">
+                                <i class="fa fa-bars"></i>
+                            </div>
+                            <div class="module-group right">
+                                <div class="module left">
+                                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                                        <ul id="menu" class="menu">
+                                            {% block menu %}
+                                                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="{{path("wedding_index_tipus")}}">Tipus</a></li>
+                                                {% if is_granted('ROLE_ADMIN')%}
+                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home active"><a href="{{asset('/admin')}}">Administra</a></li>
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="{{path("wedding_index_wedding")}}">Bodes</a></li>
+                                                    <li class="{% block dishes %} {% endblock %}"><a href="{{path("wedding_index_dish")}}">Plats <span class="sr-only"></span></a></li>
+                                                {%endif%}
+                                                {%if is_granted('ROLE_USER')%}
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="{{path("wedding_index_wedding")}}">Bodes</a></li>
+
+                                                {%endif%}
+
+                                            {% endblock %}
+                                            <li id="menu-item-1639" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><span class="dropdown-toggle shapely-dropdown" data-toggle="dropdown"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                                                <ul role="menu" class=" dropdown-menu" style="">
+                                                    {%if app.user == null %}
+                                                    <li id="menu-item-1697" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1697"><a href="{{path("login")}}">Entrar</a></li>
+                                                    {%else%}
+                                                    <li id="menu-item-1698" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1698"><a href="{{path("logout")}}">Sortir</a></li>
+                                                    {%endif%}
+                                                    <li id="menu-item-1699" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1698"><a href="{{path("wedding_lang", {'_locale': 'cat'})}}">Català</a></li>
+                                                    <li id="menu-item-1700" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1698"><a href="{{path("wedding_lang", {'_locale': 'en'})}}">English</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul></div>							</div>
+                                <!--end of menu module-->
+                            </div>
+                            <!--end of module group-->
+                        </div>
+                    </div>
+                </nav><!-- #site-navigation -->
+            </div>
         </header>
         <section id="content">
             {% block content %} {% endblock %}

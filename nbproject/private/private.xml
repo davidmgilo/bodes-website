@@ -4,23 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/config/routing.yml</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Form/UserType.php</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/views/Dish/add.html.twig</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/views/User/login.html.twig</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/config/doctrine/Wedding.orm.yml</file>
+            <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/views/Dish/index.html.twig</file>
+            <file>file:/var/www/html/bodes/web/css/propi.css</file>
+            <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/views/Type/show.html.twig</file>
+            <file>file:/var/www/html/bodes/src/WeddingBundle/Controller/DishController.php</file>
             <file>file:/var/www/html/bodes/src/WeddingBundle/Entity/Type.php</file>
             <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/views/layout.html.twig</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Controller/WeddingController.php</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Repository/WeddingRepository.php</file>
-            <file>file:/var/www/html/bodes/app/config/security.yml</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/views/Dish/index.html.twig</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/views/Dish/edit.html.twig</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Controller/UserController.php</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/views/Wedding/index.html.twig</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Controller/DishController.php</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/views/Wedding/add.html.twig</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Form/WeddingType.php</file>
-            <file>file:/var/www/html/bodes/src/WeddingBundle/Form/DishType.php</file>
+            <file>file:/var/www/html/bodes/src/WeddingBundle/Controller/TypeController.php</file>
+            <file>file:/var/www/html/bodes/src/WeddingBundle/Resources/views/Default/index.html.twig</file>
         </group>
     </open-files>
 </project-private>
